@@ -1,0 +1,36 @@
+module.exports = (sequelize, Sequelize) => {
+  const user = sequelize.define("user", {
+    id: {
+      type: Sequelize.UUID,
+      defaultValue: Sequelize.UUIDV4,
+      primaryKey: true,
+    },
+    firstName: {
+      type: Sequelize.TEXT,
+      required: true,
+    },
+    surName: {
+      type: Sequelize.TEXT,
+      required: true,
+    },
+    age: {
+      type: Sequelize.TEXT,
+      required: true,
+    },
+
+    createdBy: {
+      type: Sequelize.UUID,
+    },
+    updatedBy: {
+      type: Sequelize.UUID,
+    },
+    deletedBy: {
+      type: Sequelize.UUID,
+    },
+    deleted: {
+      type: Sequelize.INTEGER,
+      defaultValue: 0,
+    },
+  });
+  return user;
+};
